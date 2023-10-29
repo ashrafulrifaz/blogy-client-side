@@ -1,0 +1,23 @@
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+
+const ThirdCard = ({news}) => {
+   const {image, title, published_date, post, _id, category} = news
+
+   return (
+      <div>
+         <img src={image} alt="thumbnail" className="w-full h-60 rounded-lg" />
+         <div className="mt-3 space-y-2 px-2 pb-4">
+            <p className="text-[#000000b3] font-medium text-[15px]">{published_date.slice(0, 10)}</p>
+            <h2 className="text-2xl font-medium">{title}</h2>
+            <p className="text-[#000000b3] font-medium">{post.slice(0, 120)}...<Link to={`/${category}/${_id}`} className="ml-2 text-blue-500 hover:underline">Read More</Link></p>
+         </div>
+      </div>
+   );
+};
+
+ThirdCard.propTypes = {
+   news: PropTypes.object
+}
+
+export default ThirdCard;

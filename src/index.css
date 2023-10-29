@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+   font-family: 'Inter', sans-serif;
+   overflow-x: hidden;
+   max-width: 100%
+}
+
+#header ul li a {
+   font-weight: 500;
+}
+
+#header ul li a:hover {
+   color: #3B82F6;
+   transition: all 0.2s;
+}
+
+#header ul li .active {
+   color: #3B82F6;
+}
+
+.banner_card:first-child {
+   grid-row: span 2 / span 2;
+   height: auto;
+}
+
+.last_card:first-child {
+   grid-row: span 2 / span 2;
+   height: auto;
+}
+
+.last_card:first-child img {
+   max-height: 230px;
+   height: auto;
+}
+
+.last_card:first-child #description {
+   display: block;
+}
+
+#third_card:first-child {
+   border: none!important;
+}
+
+#post_details .relative {
+   display: none
+}
