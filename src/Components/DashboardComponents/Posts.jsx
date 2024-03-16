@@ -124,7 +124,7 @@ const Posts = () => {
                            <td className="font-normal p-3">{post.published_date.slice(0, 10)}</td>
                            <td className="font-normal p-3">
                               <div className="flex gap-2">
-                                 <Link to={`/${post.category}/${post._id}`}>
+                                 <Link to={`/dashboard/edit/${post._id}`}>
                                     <LiaEditSolid className="text-2xl text-green-500 hover:scale-110 transition-all" />
                                  </Link>
                                  <AiOutlineDelete onClick={() => handleDeletePost(post?._id)} className="text-2xl text-red-500 hover:scale-110 transition-all cursor-pointer" />                                 
@@ -140,7 +140,7 @@ const Posts = () => {
                            <td className="font-normal p-3">{post.published_date.slice(0, 10)}</td>
                            <td className="font-normal p-3">
                               <div className="flex gap-2">
-                                 <Link to={`/${post.category}/${post._id}`}>
+                                 <Link to={`/dashboard/edit/${post._id}`}>
                                     <LiaEditSolid className="text-2xl text-green-500 hover:scale-110 transition-all" />
                                  </Link>
                                  <AiOutlineDelete onClick={() => handleDeletePost(post?._id)} className="text-2xl text-red-500 hover:scale-110 transition-all cursor-pointer" />                                 

@@ -19,6 +19,7 @@ import NewPost from "../Components/DashboardComponents/NewPost";
 import Users from "../Components/DashboardComponents/Users";
 import DashboardLayout from '../Layout/DashboardLayout'
 import DashboardHome from "../Components/DashboardComponents/DashboardHome";
+import EditPost from "../Components/DashboardComponents/EditPost";
 
 const Route = createBrowserRouter([
    {
@@ -100,6 +101,10 @@ const Route = createBrowserRouter([
          {
             path: 'users',
             element: <Users></Users>
+         },
+         {
+            path: 'edit/:id',
+            element: <EditPost></EditPost>
          }
       ]
    }

@@ -1,11 +1,13 @@
-import { useMemo, useRef, useState } from "react";
+import { useContext, useMemo, useRef, useState } from "react";
 import Swal from "sweetalert2";
 import JoditEditor from 'jodit-react';
 import axios from "axios";
 import { useForm } from "react-hook-form";
 import useCategories from "../../Hooks/useCategories";
+import { AuthContext } from "../../Provider/Provider";
 
 const NewPost = ({placeholder}) => {
+   const {user} = useContext(AuthContext)
    const { register, handleSubmit, formState: { errors }, reset } = useForm()
 	const editor = useRef(null);
    const [loadingBlog, setLoadingBlog] = useState(false);
@@ -46,8 +48,8 @@ const NewPost = ({placeholder}) => {
          const thumbnail = res2.data.data.display_url;
          const post = content;
          const published_date = new Date()
-         const authorName = data.authorname;
-         const authorImage = data.authorimage;
+         const authorName = data.authorname ? data.authorname : user?.displayName;
+         const authorImage = data.authorimage ? data.authorimage : user?.photoUrl;
          const newPost = {title, category, tags, image, thumbnail, post, authorImage, authorName, published_date};
 
          axios.post('https://blogy-server.vercel.app/posts', newPost)
@@ -88,10 +90,10 @@ const NewPost = ({placeholder}) => {
             <div className="grid grid-cols-2 gap-5">
                <div>
                   <label htmlFor="title" className="font-medium">Your Post Category</label>
-                  <div className="bg-gray-50 rounded-md p-4 focus:outline-none focus:border-gray-300 border mt-2">
+                  <div className="bg-gray-50 rounded-md px-4 focus:outline-none focus:border-gray-300 border mt-2">
                      <select 
                         name="category" 
-                        className="w-full focus:outline-none bg-gray-50"
+                        className="w-full focus:outline-none bg-gray-50 py-[17px]"
                         {...register("category", { required: true })}
                      >
                         <option value="category" selected disabled>Category</option>
@@ -108,7 +110,8 @@ const NewPost = ({placeholder}) => {
                   <input 
                      type="text" 
                      name="tags" 
-                     className="w-full bg-gray-50 rounded-md p-4 focus:outline-none focus:border-gray-300 border mt-2" placeholder="Tags" 
+                     className="w-full bg-gray-50 rounded-md p-4 focus:outline-none focus:border-gray-300 border mt-2" 
+                     placeholder="Tags" 
                      {...register("tags", { required: true })}
                   />
                </div>
@@ -119,7 +122,8 @@ const NewPost = ({placeholder}) => {
                   <input 
                      type="file" 
                      name="image" 
-                     className="w-full bg-gray-50 rounded-md p-4 focus:outline-none focus:border-gray-300 border mt-2" placeholder="Thumbnail Image" 
+                     className="w-full bg-gray-50 rounded-md p-4 focus:outline-none focus:border-gray-300 border mt-2" 
+                     placeholder="Thumbnail Image" 
                      required
                      {...register("image", { required: true })} 
                   />
