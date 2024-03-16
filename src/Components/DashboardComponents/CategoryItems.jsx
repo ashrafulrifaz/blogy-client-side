@@ -5,9 +5,9 @@ import axios from "axios";
 import { AuthContext } from "../../Provider/Provider";
 
 const CategoryItems = ({category, id, refetch}) => {
-    const {loadedPosts} = useContext(AuthContext)
+    const {newses} = useContext(AuthContext)
     const {_id, name} = category || {}
-    const postNum = loadedPosts?.filter(post => post.category === name)
+    const postNum = newses?.filter(post => post.category === name)
 
     const handleDeleteCategory = () => {
         Swal.fire({

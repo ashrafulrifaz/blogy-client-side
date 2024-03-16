@@ -6,7 +6,6 @@ import { useContext } from "react";
 import exit from '../../assets/exit.png'
 import { AuthContext } from "../../Provider/Provider";
 
-
 const Sidebar = () => {
    const {user, logOut} = useContext(AuthContext)
 
@@ -22,39 +21,33 @@ const Sidebar = () => {
             </Link>
             <ul className="mt-8 space-y-2" id="dashboard_item">
                <li className="relative transition-all">
-                  <NavLink to='dashboard' className="font-medium flex items-center gap-3 rounded-lg px-3 py-2 hover:text-white hover:bg-blue-500 text-[#000000b3]">
+                  <NavLink to='' className="font-medium flex items-center gap-3 rounded-lg px-3 py-2 hover:text-white hover:bg-blue-500 text-[#000000b3]">
                      <FontAwesomeIcon icon={faHouse} />
                      <span>Dashboard</span>
                   </NavLink>
                </li>
                <li className="relative transition-all">
-                  <NavLink to='dashboard/posts' className="font-medium flex items-center gap-3 rounded-lg px-3 py-2 hover:text-white hover:bg-blue-500 text-[#000000b3]">
+                  <NavLink to='posts' className="font-medium flex items-center gap-3 rounded-lg px-3 py-2 hover:text-white hover:bg-blue-500 text-[#000000b3]">
                      <FontAwesomeIcon icon={faCopy} />
                      <span>Posts</span>
                   </NavLink>
                </li>
                <li className="relative transition-all">
-                  <NavLink to='dashboard/new-post' className="font-medium flex items-center gap-3 rounded-lg px-3 py-2 hover:text-white hover:bg-blue-500 text-[#000000b3]">
+                  <NavLink to='new-post' className="font-medium flex items-center gap-3 rounded-lg px-3 py-2 hover:text-white hover:bg-blue-500 text-[#000000b3]">
                      <FontAwesomeIcon icon={faFolderOpen} />
                      <span>New Post</span>
                   </NavLink>
                </li>
                <li className="relative transition-all">
-                  <NavLink to='dashboard/category' className="font-medium flex items-center gap-3 rounded-lg px-3 py-2 hover:text-white hover:bg-blue-500 text-[#000000b3]">
+                  <NavLink to='category' className="font-medium flex items-center gap-3 rounded-lg px-3 py-2 hover:text-white hover:bg-blue-500 text-[#000000b3]">
                      <FontAwesomeIcon icon={faList} />
                      <span>Category</span>
                   </NavLink>
                </li>
                <li className="relative transition-all">
-                  <NavLink to='dashboard/users' className="font-medium flex items-center gap-3 rounded-lg px-3 py-2 hover:text-white hover:bg-blue-500 text-[#000000b3]">
+                  <NavLink to='users' className="font-medium flex items-center gap-3 rounded-lg px-3 py-2 hover:text-white hover:bg-blue-500 text-[#000000b3]">
                      <FontAwesomeIcon icon={faUser} />
                      <span>Users</span>
-                  </NavLink>
-               </li>
-               <li className="relative transition-all">
-                  <NavLink to='dashboard/chat' className="font-medium flex items-center gap-3 rounded-lg px-3 py-2 hover:text-white hover:bg-blue-500 text-[#000000b3]">
-                     <FontAwesomeIcon icon={faUser} />
-                     <span>Chat</span>
                   </NavLink>
                </li>
             </ul>

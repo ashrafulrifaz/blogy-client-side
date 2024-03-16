@@ -81,24 +81,24 @@ const Route = createBrowserRouter([
             element: <DashboardHome></DashboardHome>
          },
          {
-            path: 'dashboard/posts',
+            path: 'posts',
             element: <Posts></Posts>
          },
          {
-            path: 'dashboard/category/:id',
+            path: 'category/:id',
             element: <Edit></Edit>,
             loader: ({params}) => fetch(`https://blogy-server.vercel.app/category/${params.id}`)
          },
          {
-            path: 'dashboard/category',
+            path: 'category',
             element: <Category></Category>
          },
          {
-            path: 'dashboard/new-post',
+            path: 'new-post',
             element: <NewPost></NewPost>
          },
          {
-            path: 'dashboard/users',
+            path: 'users',
             element: <Users></Users>
          }
       ]

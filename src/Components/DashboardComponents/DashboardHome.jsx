@@ -7,7 +7,7 @@ import { AuthContext } from "../../Provider/Provider";
 import useCategories from "../../Hooks/useCategories";
 
 const DashboardHome = () => {
-   const {loadedPosts} = useContext(AuthContext)
+   const {newses} = useContext(AuthContext)
    const {categories} = useCategories()
    
    return (
@@ -16,7 +16,7 @@ const DashboardHome = () => {
          <div className="grid grid-cols-4 gap-6">
             <div className="p-5 rounded-lg bg-blue-200">
                <CiFileOn className="text-3xl text-blue-600" />
-               <h2 className="mt-5 text-2xl font-semibold">{loadedPosts?.length}</h2>
+               <h2 className="mt-5 text-2xl font-semibold">{newses?.length}</h2>
                <h3 className="mt-1 font-medium text-md">Total Posts</h3>
             </div>
             <div className="p-5 rounded-lg bg-indigo-200">

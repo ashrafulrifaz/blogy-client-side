@@ -8,20 +8,19 @@ import { AuthContext } from "../../Provider/Provider";
 import useCategories from "../../Hooks/useCategories";
 
 const Posts = () => {
-   const {loadedPosts} = useContext(AuthContext)
+   const {newses} = useContext(AuthContext)
    const {categories} = useCategories()
-   const posts = [...loadedPosts].reverse()
    const [filteredValue, setFilteredValue] = useState(null)
-   const [filteredPosts, setFilteredPosts] = useState(posts)
+   const [filteredPosts, setFilteredPosts] = useState(newses)
    const [showSearch, setShowSearch] = useState(false)
 
    const handleFilter = e => {
       const option = e.target.value
       setFilteredValue(option)
       if(option === 'all'){
-         setFilteredPosts(posts)         
+         setFilteredPosts(newses)         
       } else {
-         const filteredItems = posts?.filter(post => post?.category === option)
+         const filteredItems = newses?.filter(post => post?.category === option)
          setFilteredPosts(filteredItems)
       }
    }
@@ -30,7 +29,7 @@ const Posts = () => {
       e.preventDefault()
       setFilteredValue(true)
       const searchValue = e.target.value
-      const searcing = posts?.filter(post => post.title.toLowerCase().includes(searchValue))
+      const searcing = newses?.filter(post => post.title.toLowerCase().includes(searchValue))
       setFilteredPosts(searcing)
    }
 
@@ -90,7 +89,7 @@ const Posts = () => {
                            </td>
                         </tr>)
                         :
-                        posts?.map((post, idx) => 
+                        newses?.map((post, idx) => 
                         <tr key={idx} className="border-t border-gray-200">
                            <td className="font-medium p-3">{post.title}</td>
                            <td className="font-medium p-3 capitalize">{post.authorName}</td>
