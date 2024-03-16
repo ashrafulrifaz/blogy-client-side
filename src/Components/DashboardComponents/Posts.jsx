@@ -1,14 +1,16 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { LiaEditSolid } from "react-icons/lia";
 import { AiOutlineDelete } from "react-icons/ai";
 import { IoIosSearch } from "react-icons/io";
 import { PiMagnifyingGlassMinus } from "react-icons/pi";
-import { AuthContext } from "../../Provider/Provider";
 import useCategories from "../../Hooks/useCategories";
+import axios from "axios";
+import Swal from "sweetalert2";
+import usePosts from "../../Hooks/usePosts";
 
 const Posts = () => {
-   const {newses} = useContext(AuthContext)
+   const {newses, refetch} = usePosts()
    const {categories} = useCategories()
    const [filteredValue, setFilteredValue] = useState(null)
    const [filteredPosts, setFilteredPosts] = useState(newses)
@@ -31,6 +33,47 @@ const Posts = () => {
       const searchValue = e.target.value
       const searcing = newses?.filter(post => post.title.toLowerCase().includes(searchValue))
       setFilteredPosts(searcing)
+   }
+   
+   const handleDeletePost = (id) => {
+      const swalWithBootstrapButtons = Swal.mixin({
+         customClass: {
+           confirmButton: "btn btn-success",
+           cancelButton: "btn btn-danger"
+         },
+         buttonsStyling: false
+       });
+       swalWithBootstrapButtons.fire({
+         title: "Are you sure?",
+         text: "You won't be able to revert this!",
+         icon: "warning",
+         showCancelButton: true,
+         confirmButtonText: "Yes, delete it!",
+         cancelButtonText: "No, cancel!",
+         reverseButtons: true
+       }).then((result) => {
+         if (result.isConfirmed) {
+            axios.delete(`http://localhost:5000/posts/${id}`)
+               .then(res => {
+                  refetch()
+                  if(res.data.deletedCount){
+                     swalWithBootstrapButtons.fire({
+                       title: "Deleted!",
+                       text: "Your file has been deleted.",
+                       icon: "success"
+                     });
+                  }
+               })
+         } else if (
+           result.dismiss === Swal.DismissReason.cancel
+         ) {
+           swalWithBootstrapButtons.fire({
+             title: "Cancelled",
+             text: "Your imaginary file is safe :)",
+             icon: "error"
+           });
+         }
+       });
    }
 
    return (
@@ -84,7 +127,7 @@ const Posts = () => {
                                  <Link to={`/${post.category}/${post._id}`}>
                                     <LiaEditSolid className="text-2xl text-green-500 hover:scale-110 transition-all" />
                                  </Link>
-                                 <AiOutlineDelete className="text-2xl text-red-500 hover:scale-110 transition-all cursor-pointer" />                                 
+                                 <AiOutlineDelete onClick={() => handleDeletePost(post?._id)} className="text-2xl text-red-500 hover:scale-110 transition-all cursor-pointer" />                                 
                               </div>
                            </td>
                         </tr>)
@@ -100,7 +143,7 @@ const Posts = () => {
                                  <Link to={`/${post.category}/${post._id}`}>
                                     <LiaEditSolid className="text-2xl text-green-500 hover:scale-110 transition-all" />
                                  </Link>
-                                 <AiOutlineDelete className="text-2xl text-red-500 hover:scale-110 transition-all cursor-pointer" />                                 
+                                 <AiOutlineDelete onClick={() => handleDeletePost(post?._id)} className="text-2xl text-red-500 hover:scale-110 transition-all cursor-pointer" />                                 
                               </div>
                            </td>
                         </tr>)

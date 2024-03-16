@@ -1,11 +1,10 @@
-import { useContext } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import Swal from "sweetalert2";
 import axios from "axios";
-import { AuthContext } from "../../Provider/Provider";
+import usePosts from "../../Hooks/usePosts";
 
 const CategoryItems = ({category, id, refetch}) => {
-    const {newses} = useContext(AuthContext)
+    const {newses} = usePosts()
     const {_id, name} = category || {}
     const postNum = newses?.filter(post => post.category === name)
 

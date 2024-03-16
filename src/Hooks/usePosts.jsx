@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
 const usePosts = () => {
-    const { isPending, data: posts } = useQuery({
+    const { isPending, data: posts, refetch } = useQuery({
         queryKey: ['posts'],
         queryFn: () =>
             fetch('https://blogy-server.vercel.app/posts')
@@ -12,7 +12,7 @@ const usePosts = () => {
       
    const newses = [...posts || []].reverse()
 
-    return { posts, isPending, newses }
+    return { posts, isPending, newses, refetch }
 };
 
 export default usePosts;

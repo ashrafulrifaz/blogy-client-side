@@ -1,13 +1,12 @@
-import { useContext } from "react";
 import { CiFileOn } from "react-icons/ci";
 import { RxDashboard } from "react-icons/rx";
 import { LuUsers2 } from "react-icons/lu";
 import { PiMagnifyingGlass } from "react-icons/pi";
-import { AuthContext } from "../../Provider/Provider";
 import useCategories from "../../Hooks/useCategories";
+import usePosts from "../../Hooks/usePosts";
 
 const DashboardHome = () => {
-   const {newses} = useContext(AuthContext)
+   const {newses} = usePosts()
    const {categories} = useCategories()
    
    return (
