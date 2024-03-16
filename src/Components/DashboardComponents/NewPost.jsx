@@ -49,7 +49,6 @@ const NewPost = ({placeholder}) => {
          const authorName = data.authorname;
          const authorImage = data.authorimage;
          const newPost = {title, category, tags, image, thumbnail, post, authorImage, authorName, published_date};
-         console.log(newPost);
 
          axios.post('https://blogy-server.vercel.app/posts', newPost)
             .then(data => {
@@ -63,9 +62,10 @@ const NewPost = ({placeholder}) => {
                   })
                }
                reset()
+               setLoadingBlog(false)
             })
       }      
-      setLoadingBlog(true)
+      setLoadingBlog(false)
    }
 
    return (
@@ -161,7 +161,14 @@ const NewPost = ({placeholder}) => {
                   {...register("author_image")}                  
                />
             </div>
-            <button className="text-white font-medium bg-blue-500 rounded-lg px-5 py-2">Publish</button>
+            <button className="text-white font-medium bg-blue-500 rounded-lg px-5 py-2">
+               {
+                  loadingBlog ? 
+                  <div className="loader"></div>
+                  :
+                  <span>Publish</span>
+               }
+            </button>
          </form>
       </div>
    );
