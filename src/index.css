@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+   font-family: 'Inter', sans-serif;
+   overflow-x: hidden;
+   max-width: 100%;
+}
+
+#header ul li a,
+.drawer-side ul li a {
+   font-weight: 500;
+   font-size: 16px
+}
+
+#header ul li a:hover,
+.drawer-side ul li a:hover {
+   color: #3B82F6;
+   transition: all 0.2s;
+   background: transparent;
+   outline: 0!important
+}
+
+.drawer-side ul li button:hover {
+   background: #3B82F6
+}
+
+#header ul li .active,
+.drawer-side ul li .active {
+   color: #3B82F6!important;
+   background: transparent;
+}
+
+.banner_card:first-child {
+   grid-row: span 2 / span 2;
+   height: auto;
+}
+
+.banner_card:hover h2,
+.first_card:hover h2,
+.second_card:hover h2,
+#third_card:hover h2,
+.third_card:hover h2,
+.post_card:hover h2,
+.last_card:hover h2 {
+   @apply text-blue-500
+}
+
+.first_card:hover img,
+.second_card:hover img,
+.third_card:hover img,
+.post_card:hover img,
+.last_card:hover img {
+   @apply scale-110
+}
+
+#third_card:first-child {
+   border: none!important;
+}
+
+#post_details .relative {
+   display: none
+}
+
+.searched_posts {
+   @apply border-b border-gray-300 py-2 font-medium
+}
+
+.searched_posts:last-child {
+   @apply border-0
+}
+
+.drawer {
+   width: auto!important
+}
+
+@media screen and (max-width: 600px) {
+   .banner_card:first-child {
+      height: 240px;
+   }
+}
