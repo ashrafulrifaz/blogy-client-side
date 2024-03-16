@@ -37,7 +37,7 @@ const Category = () => {
       <div className="bg-white p-10 rounded-lg">
          <div className="flex justify-between items-center">
             <h2 className="text-xl font-semibold">Categories</h2>
-            <button onClick={() => setShowForm(!showForm)} to="/new-post" className="text-blue-500 hover:text-white font-medium border border-blue-500 hover:bg-blue-500 rounded-md px-2 py-1 text-sm transition-all">{showForm ? 'Cancel' : 'Add New'}</button>
+            <button onClick={() => setShowForm(!showForm)} to="/new-post" className={`${!showForm ? 'text-blue-500 border-blue-500 hover:bg-blue-500' : 'text-red-500 border-red-500 hover:bg-red-500'} hover:text-white font-semibold border rounded-md px-2 py-1 text-sm transition-all`}>{showForm ? 'Cancel' : 'Add New'}</button>
          </div>
          <form onSubmit={handleSubmit(onSubmit)} className={`${showForm ? 'block' : 'hidden'} border border-slate-300 mt-6 rounded-lg p-4 space-y-4`}>
             <div className="grid grid-cols-5 gap-4 items-center">

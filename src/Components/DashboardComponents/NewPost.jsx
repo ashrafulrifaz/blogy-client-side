@@ -74,10 +74,11 @@ const NewPost = ({placeholder}) => {
          <h1 className="text-2xl font-semibold">Add New Post</h1>
          <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-6">
             <div>
-               <label htmlFor="title">Your Post Title</label>
+               <label htmlFor="title" className="font-medium">Your Post Title</label>
                <input 
                   id="title"
                   type="text" 
+                  className="w-full bg-gray-50 rounded-md p-4 focus:outline-none focus:border-gray-300 border mt-2" 
                   name="title" 
                   placeholder="Title" 
                   required 
@@ -86,7 +87,7 @@ const NewPost = ({placeholder}) => {
             </div>
             <div className="grid grid-cols-2 gap-5">
                <div>
-                  <label htmlFor="title">Your Post Category</label>
+                  <label htmlFor="title" className="font-medium">Your Post Category</label>
                   <div className="bg-gray-50 rounded-md p-4 focus:outline-none focus:border-gray-300 border mt-2">
                      <select 
                         name="category" 
@@ -103,41 +104,41 @@ const NewPost = ({placeholder}) => {
                   </div>
                </div>
                <div>
-                  <label htmlFor="title">Your Post Tags</label>
+                  <label htmlFor="title" className="font-medium">Your Post Tags</label>
                   <input 
                      type="text" 
                      name="tags" 
-                     className="w-full bg-gray-50 rounded-md p-4 focus:outline-none focus:border-gray-300 border" placeholder="Tags" 
+                     className="w-full bg-gray-50 rounded-md p-4 focus:outline-none focus:border-gray-300 border mt-2" placeholder="Tags" 
                      {...register("tags", { required: true })}
                   />
                </div>
             </div>
             <div className="grid grid-cols-2 gap-5">
                <div>
-                  <label htmlFor="title">Your Post Image</label>
+                  <label htmlFor="title" className="font-medium">Your Post Image</label>
                   <input 
                      type="file" 
                      name="image" 
-                     className="w-full bg-gray-50 rounded-md p-4 focus:outline-none focus:border-gray-300 border" placeholder="Thumbnail Image" 
+                     className="w-full bg-gray-50 rounded-md p-4 focus:outline-none focus:border-gray-300 border mt-2" placeholder="Thumbnail Image" 
                      required
                      {...register("image", { required: true })} 
                   />
                </div>
                <div>
-                  <label htmlFor="title">Your Post Thumbnail Image</label>
+                  <label htmlFor="title" className="font-medium">Your Post Thumbnail Image</label>
                   <input 
                      type="file" 
                      name="thumbnail" 
-                     className="w-full bg-gray-50 rounded-md p-4 focus:outline-none focus:border-gray-300 border" placeholder="Thumbnail Image" 
+                     className="w-full bg-gray-50 rounded-md p-4 focus:outline-none focus:border-gray-300 border mt-2" placeholder="Thumbnail Image" 
                      required
                      {...register("thumbnail", { required: true })} 
                   />
                </div>
             </div>
             <div>
-               <label htmlFor="title">Your Post Details</label>
+               <label htmlFor="title" className="font-medium">Your Post Details</label>
                <JoditEditor
-                  className="mt-"
+                  className="mt-2"
                   ref={editor}
                   value={content}
                   config={config}

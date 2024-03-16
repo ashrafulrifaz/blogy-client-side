@@ -36,7 +36,7 @@ const Posts = () => {
    return (
       <div className='bg-white p-10 rounded-lg'>
          <div className="flex justify-between items-center">
-            <Link to="/new-post" className="text-blue-500 hover:text-white font-medium border border-blue-500 hover:bg-blue-500 rounded-md px-2 py-1 text-sm">Add New</Link>
+            <Link to="/dashboard/new-post" className="text-blue-500 hover:text-white font-semibold border border-blue-500 hover:bg-blue-500 rounded-md px-2 py-1 text-sm">Add New</Link>
             <div className="flex items-center gap-3">
                <form onChange={handleSearch} className={`transition-all duration-500 ${showSearch ? 'opacity-100' : 'opacity-0'}`}>
                   <input type="text" className="border border-gray-400 py-1 px-3 focus:outline-none rounded-md" placeholder="Type to search...." />
