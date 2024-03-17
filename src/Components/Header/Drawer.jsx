@@ -62,7 +62,7 @@ const Drawer = ({setOpenDrawer}) => {
                     
                     userRole?.role === 'admin' &&
                     <li>
-                        <NavLink onClick={handleDrawer} to='/dashboard' className="capitalize">Dashboard</NavLink>
+                        <NavLink onClick={handleDrawer} to='/dashboard/home' className="capitalize">Dashboard</NavLink>
                     </li>
                 }
                 <hr className='h-0.5 bg-slate-500 mx-4 my-2' /> 

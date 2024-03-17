@@ -106,11 +106,11 @@ const Posts = () => {
                <table className="border border-gray-300 w-full text-left">
                   <thead>
                      <tr>
-                        <th className="font-normal p-3 w-2/5">Title</th>
-                        <th className="font-normal p-3">Author</th>
-                        <th className="font-normal p-3">Category</th>
-                        <th className="font-normal p-3">Date</th>
-                        <th className="font-normal p-3">Action</th>
+                        <th className="font-medium p-3 w-2/5">Title</th>
+                        <th className="font-medium p-3">Author</th>
+                        <th className="font-medium p-3">Category</th>
+                        <th className="font-medium p-3">Date</th>
+                        <th className="font-medium p-3">Action</th>
                      </tr>
                   </thead>
                   <tbody>

@@ -14,14 +14,14 @@ const Sidebar = () => {
    }
 
    return (
-      <div className="p-5 bg-white h-screen w-2/12 sticky overflow-hidden flex flex-col justify-between">
+      <div id="sidebar" className="p-5 bg-white h-screen w-2/12 sticky overflow-hidden flex flex-col justify-between">
          <div>
             <Link to="/">
                <h2 className="font-mono font-bold text-3xl">BLOGY</h2>
             </Link>
             <ul className="mt-8 space-y-2" id="dashboard_item">
                <li className="relative transition-all">
-                  <NavLink to='' className="font-medium flex items-center gap-3 rounded-lg px-3 py-2 hover:text-white hover:bg-blue-500 text-[#000000b3]">
+                  <NavLink to='home' className="font-medium flex items-center gap-3 rounded-lg px-3 py-2 hover:text-white hover:bg-blue-500 text-[#000000b3]">
                      <FontAwesomeIcon icon={faHouse} />
                      <span>Dashboard</span>
                   </NavLink>

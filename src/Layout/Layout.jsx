@@ -2,13 +2,23 @@ import { Outlet } from "react-router-dom";
 import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
 import Navbar from "../Components/Navbar/Navbar";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
+const date = new Date()
 
 
 const Layout = () => {
    const [isHeaderFixed, setIsHeaderFixed] = useState(false);
+   const isDataPosted = useRef(false);
 
    useEffect(() => {
+
+      if (!isDataPosted.current) {
+         axios.post('http://localhost:5000/user-visited', {
+             visitedTime: date
+         })
+     }
+
       const handleScroll = () => {
         setIsHeaderFixed(window.scrollY > 65);
       };

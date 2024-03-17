@@ -30,6 +30,10 @@ const UserItems = ({user, refetch}) => {
         });
     }
 
+    const handleDeleteUser = () => {
+
+    }
+
     return (
         <tr className="border-t border-gray-200">
             <td className="font-medium p-3 capitalize">
@@ -46,7 +50,6 @@ const UserItems = ({user, refetch}) => {
                         <option value="editor">editor</option>
                         <option value="user">user</option>
                     </select>
-                    <AiOutlineDelete className="text-2xl text-red-500 hover:scale-110 transition-all cursor-pointer" />
                 </div>
             </td>
         </tr>

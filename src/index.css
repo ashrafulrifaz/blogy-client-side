@@ -77,6 +77,10 @@ html, body {
    width: auto!important
 }
 
+#sidebar ul li .active {
+   @apply bg-blue-500 text-white
+}
+
 .loader {
    width: 25px;
    --b: 3px; 
