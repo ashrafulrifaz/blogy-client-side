@@ -83,7 +83,7 @@ const EditPost = ({placeholder}) => {
             authorImage: newAuthorName, 
             authorName: newAuthorImage
         };
-        axios.patch(`http://localhost:5000/posts/${_id}`, newPost)
+        axios.patch(`https://blogy-server.vercel.app/posts/${_id}`, newPost)
             .then(res => {
                 if(res.data.modifiedCount){
                     toast.success('successfully updated')

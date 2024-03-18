@@ -14,7 +14,7 @@ const Layout = () => {
    useEffect(() => {
 
       if (!isDataPosted.current) {
-         axios.post('http://localhost:5000/user-visited', {
+         axios.post('https://blogy-server.vercel.app/user-visited', {
              visitedTime: date
          })
      }

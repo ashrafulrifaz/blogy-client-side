@@ -1,12 +1,11 @@
+import { useContext } from "react";
 import { Navigate } from "react-router-dom";
-import useUserRole from "../Hooks/useUserRole";
-
+import { AuthContext } from "../Provider/Provider";
 
 const PrivateRoute = ({children}) => {
-   const {userRole} = useUserRole()
-   console.log(userRole);
+   const {userRole, isRolePending} = useContext(AuthContext)
 
-   if(userRole?.role === 'admin'){
+   if(!isRolePending && userRole?.role === 'admin'){
       return children
    } else {
       return <Navigate to="/"></Navigate>

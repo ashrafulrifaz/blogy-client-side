@@ -17,7 +17,7 @@ const UserItems = ({user, refetch}) => {
         })
         .then((result) => {
             if (result.isConfirmed) {
-                axios.patch(`http://localhost:5000/users/${_id}`, {role: newRole})
+                axios.patch(`https://blogy-server.vercel.app/users/${_id}`, {role: newRole})
                     .then(() => {
                         Swal.fire({
                             title: "RoleUpdated!",

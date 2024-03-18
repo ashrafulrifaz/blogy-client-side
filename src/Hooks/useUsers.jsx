@@ -4,7 +4,7 @@ const useUsers = () => {
     const { isPending, refetch, data: users } = useQuery({
         queryKey: ['users'],
         queryFn: () =>
-            fetch('http://localhost:5000/users')
+            fetch('https://blogy-server.vercel.app/users')
             .then((res) =>
                 res.json(),
             )

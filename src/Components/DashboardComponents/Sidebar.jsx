@@ -7,10 +7,10 @@ import exit from '../../assets/exit.png'
 import { AuthContext } from "../../Provider/Provider";
 
 const Sidebar = () => {
-   const {user, logOut} = useContext(AuthContext)
+   const {user, signOutUser} = useContext(AuthContext)
 
    const handleLogOut = () => {
-      logOut()
+      signOutUser()
    }
 
    return (
@@ -55,7 +55,7 @@ const Sidebar = () => {
          <div>
             <div className="flex justify-between items-center">
                <img src={user?.photoURL} className="w-10 h-10 rounded-full" alt="" />
-               <img onClick={handleLogOut} src={exit} className="w-5 h-5 cursor-pointer" alt="" />
+               <img onClick={() => handleLogOut()} src={exit} className="w-5 h-5 cursor-pointer" alt="" />
             </div>
          </div>
       </div>

@@ -53,7 +53,7 @@ const Posts = () => {
          reverseButtons: true
        }).then((result) => {
          if (result.isConfirmed) {
-            axios.delete(`http://localhost:5000/posts/${id}`)
+            axios.delete(`https://blogy-server.vercel.app/posts/${id}`)
                .then(res => {
                   refetch()
                   if(res.data.deletedCount){

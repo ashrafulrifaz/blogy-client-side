@@ -20,6 +20,7 @@ import Users from "../Components/DashboardComponents/Users";
 import DashboardLayout from '../Layout/DashboardLayout'
 import DashboardHome from "../Components/DashboardComponents/DashboardHome";
 import EditPost from "../Components/DashboardComponents/EditPost";
+import PrivateRoute from "./PrivateRoute";
 
 const Route = createBrowserRouter([
    {
@@ -75,7 +76,7 @@ const Route = createBrowserRouter([
    },
    {
       path: 'dashboard',
-      element: <DashboardLayout></DashboardLayout>,
+      element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
       children: [
          {
             path: 'home',

@@ -1,10 +1,8 @@
 import PropTypes from 'prop-types';
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../../assets/logo.png'
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/Provider';
 import useCategories from '../../Hooks/useCategories';
-import { useQuery } from '@tanstack/react-query';
 
 const drawerItems = [
     {
@@ -26,17 +24,8 @@ const drawerItems = [
 ]
 
 const Drawer = ({setOpenDrawer}) => {
-    const {user, signOutUser} = useContext(AuthContext)
+    const {user, userRole, isRolePending, signOutUser} = useContext(AuthContext)
     const {categories} = useCategories()
-
-    const { isPending, data: userRole } = useQuery({
-        queryKey: ['user_role'],
-        queryFn: () =>
-            fetch(`http://localhost:5000/user-role/${user?.email}`)
-            .then((res) =>
-                res.json(),
-            )
-    })
 
     const handleDrawer = () => {
         setOpenDrawer(false)
@@ -48,7 +37,7 @@ const Drawer = ({setOpenDrawer}) => {
             <ul className="menu p-4 w-80 min-h-full bg-white text-base-content">
                 <li>
                     <Link onClick={handleDrawer} to="/">
-                        <img src={logo} className='w-3/4' alt="logo"/>
+                        <h2 className='font-semibold text-3xl'>BLOGY</h2>
                     </Link>
                 </li>
                 {
@@ -60,10 +49,12 @@ const Drawer = ({setOpenDrawer}) => {
                 }  
                 {
                     
-                    userRole?.role === 'admin' &&
+                    userRole?.role === 'admin' ?
                     <li>
                         <NavLink onClick={handleDrawer} to='/dashboard/home' className="capitalize">Dashboard</NavLink>
                     </li>
+                    :
+                    ''
                 }
                 <hr className='h-0.5 bg-slate-500 mx-4 my-2' /> 
                 <li>

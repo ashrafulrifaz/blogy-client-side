@@ -16,7 +16,7 @@ const DashboardHome = () => {
    const { isPending, data: visitor } = useQuery({
       queryKey: ['visitor'],
       queryFn: async () => {
-         const res = await axios.get('http://localhost:5000/user-visited')
+         const res = await axios.get('https://blogy-server.vercel.app/user-visited')
          return res.data
       }
    })
