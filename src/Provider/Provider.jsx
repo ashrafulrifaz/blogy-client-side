@@ -32,13 +32,11 @@ const Provider = ({children}) => {
 
    const { isFetching: isRolePending, data: userRole} = useQuery({
       queryKey: ['user_role'],
+      enabled: !!user?.email,
       queryFn: async () =>{
-         if(user?.email){
-            const res = await axios.get(`https://blogy-server.vercel.app/user-role/${user?.email}`)
-            return res?.data
-         }
+         const res = await axios.get(`https://blogy-server.vercel.app/user-role/${user?.email}`)
+         return res?.data
       },
-      enabled: !!user?.email
    })
 
    const createUser = (email, password) => {
@@ -69,7 +67,6 @@ const Provider = ({children}) => {
             progress: undefined,
             theme: "colored",
          });
-         setIsLoading(true)
       })
    }
 

@@ -137,7 +137,7 @@ const Posts = () => {
                            <td className="font-medium p-3">{post.title}</td>
                            <td className="font-medium p-3 capitalize">{post.authorName}</td>
                            <td className="font-medium p-3 capitalize">{post.category}</td>
-                           <td className="font-normal p-3">{post.published_date.slice(0, 10)}</td>
+                           <td className="font-normal p-3">{post.published_date?.slice(0, 10)}</td>
                            <td className="font-normal p-3">
                               <div className="flex gap-2">
                                  <Link to={`/dashboard/edit/${post._id}`}>
